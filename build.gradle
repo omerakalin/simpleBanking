@@ -14,11 +14,21 @@ repositories {
 
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-web'
-  testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Added dependency for Spring Data JPA
+  runtimeOnly 'com.h2database:h2' // H2 Database for development and testing
+
+  // Spring Boot DevTools for automatic restarts and live reload
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
-  testImplementation('org.mockito:mockito-core')
+
+  // Unit testing dependencies
+  testImplementation('org.springframework.boot:spring-boot-starter-test') {
+    exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+  }
+  testImplementation 'org.mockito:mockito-core' // Mockito for mocking in tests
+
+  // Optional: Add additional testing libraries like AssertJ, Hamcrest, etc.
+  // testImplementation 'org.assertj:assertj-core'
+  // testImplementation 'org.hamcrest:hamcrest-library'
 }
 
 test {

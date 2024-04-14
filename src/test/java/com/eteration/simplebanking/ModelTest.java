@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ModelTest {
-	
+
 	@Test
 	public void testCreateAccountAndSetBalance0() {
 		Account account = new Account("Kerem Karaca", "17892");
@@ -23,7 +23,7 @@ public class ModelTest {
 	}
 
 	@Test
-	public void testDepositIntoBankAccount() {
+	public void testDepositIntoBankAccount() throws InsufficientBalanceException {
 		Account account = new Account("Demet Demircan", "9834");
 		account.deposit(100);
 		assertTrue(account.getBalance() == 100);
@@ -47,7 +47,7 @@ public class ModelTest {
 		  });
 
 	}
-	
+
 	@Test
 	public void testTransactions() throws InsufficientBalanceException {
 		// Create account
